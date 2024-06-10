@@ -1,7 +1,8 @@
 import { subpages } from "@/data/subpages";
+import { Locale } from "@/config/languages-config";
 
 interface SubPageProps {
-    params: { page: string, subpage: string }
+    params: { page: string, subpage: string, locale: Locale }
 }
 
 const Subpage = async ({

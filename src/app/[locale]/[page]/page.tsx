@@ -1,7 +1,8 @@
 import { pages } from "@/data/pages"
+import { Locale } from "@/config/languages-config";
 
 interface PageProps {
-    params: { page: string }
+    params: { page: string, locale: Locale }
 }
 
 const Page = async ({

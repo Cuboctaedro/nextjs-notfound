@@ -1,4 +1,5 @@
 import { pages } from "@/data/pages";
+import { Locale } from "@/config/languages-config";
 
 interface LayoutProps {
     children: React.ReactNode
@@ -16,7 +17,11 @@ const PageLayout = async ({
     );
 };
 
-export async function generateStaticParams() {
+export async function generateStaticParams({
+    params: { locale },
+}: {
+    params: { locale: Locale }
+}) {
     const data = pages;
     return data.map((p) => ({ page: p.slug }));
 }

@@ -1,4 +1,5 @@
 import { subpages } from "@/data/subpages";
+import { Locale } from "@/config/languages-config";
 
 interface SubpageLayoutProps {
     children: React.ReactNode
@@ -17,9 +18,9 @@ const SubpageLayout = async ({
 };
 
 export async function generateStaticParams({
-    params: { page },
+    params: { page, locale },
 }: {
-    params: { page: string }
+    params: { page: string, locale: Locale }
 }) {
     const data = subpages;
     return data.filter((sub) => (sub.parent == page)).map((sub) => ({ subpage: sub.slug }));
