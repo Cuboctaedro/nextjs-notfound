@@ -1,7 +1,5 @@
-import { Locale } from "@/config/languages-config";
-
 interface PageProps {
-    params: { page: string, locale: Locale }
+    params: { page: string }
 }
 
 const Page = async ({

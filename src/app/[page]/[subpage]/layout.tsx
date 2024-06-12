@@ -1,5 +1,3 @@
-import { Locale } from "@/config/languages-config";
-
 interface SubpageLayoutProps {
     children: React.ReactNode
     params: { page: string, subpage: string }
@@ -11,15 +9,17 @@ const SubpageLayout = async ({
 }: SubpageLayoutProps) => {
     return (
         <div id="subpage-layout">
+            <p>subpage layout</p>
+
             {children}
         </div>
     );
 };
 
 export async function generateStaticParams({
-    params: { page, locale },
+    params: { page },
 }: {
-    params: { page: string, locale: Locale }
+    params: { page: string }
 }) {
     const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/subpages`);
     const data = await response.json();

@@ -1,5 +1,3 @@
-import { Locale } from "@/config/languages-config";
-
 interface LayoutProps {
     children: React.ReactNode
     params: { page: string }
@@ -11,16 +9,13 @@ const PageLayout = async ({
 }: LayoutProps) => {
     return (
         <div id="page-layout">
+            <p>page layout</p>
             {children}
         </div>
     );
 };
 
-export async function generateStaticParams({
-    params: { locale },
-}: {
-    params: { locale: Locale }
-}) {
+export async function generateStaticParams() {
     const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/pages`);
     const data = await response.json();
 
