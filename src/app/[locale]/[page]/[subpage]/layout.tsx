@@ -23,8 +23,8 @@ export async function generateStaticParams({
 }) {
     const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/subpages`);
     const data = await response.json();
-
-    return data
+    console.log(data);
+    return data.subpages
         .filter((p: any) => (p.parent == page))
         .map((p: any) => ({ subpage: p.slug }));
 }

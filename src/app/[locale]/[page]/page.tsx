@@ -10,7 +10,7 @@ const Page = async ({
     const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/pages`);
     const data = await response.json();
 
-    const pageData = data.find((p: any) => (p.slug == params.page));
+    const pageData = data.pages.find((p: any) => (p.slug == params.page));
 
     if (pageData) {
         return (

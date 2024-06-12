@@ -21,11 +21,10 @@ export async function generateStaticParams({
 }: {
     params: { locale: Locale }
 }) {
-    const url = `${process.env.NEXT_PUBLIC_DOMAIN}/api/pages`;
     const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/pages`);
     const data = await response.json();
 
-    return data.map((p: any) => ({ page: p.slug }));
+    return data.pages.map((p: any) => ({ page: p.slug }));
 }
 
 export const dynamic = 'force-static';

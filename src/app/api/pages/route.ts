@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 
 export async function GET(request: Request) {
-    const data = await [
+    const data = [
         {
             title: 'Page A',
             slug: 'page-a'
@@ -16,5 +16,5 @@ export async function GET(request: Request) {
         }
     ];
 
-    return NextResponse.json(data);
+    return NextResponse.json({ pages: data });
 }

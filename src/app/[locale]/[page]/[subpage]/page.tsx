@@ -10,7 +10,7 @@ const Subpage = async ({
     const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/subpages`);
     const data = await response.json();
 
-    const pageData = data.find((p: any) => (p.slug == params.subpage));
+    const pageData = data.subpages.find((p: any) => (p.slug == params.subpage));
 
     if (pageData) {
         return (
