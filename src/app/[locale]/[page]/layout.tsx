@@ -21,7 +21,10 @@ export async function generateStaticParams({
 }: {
     params: { locale: Locale }
 }) {
+    const url = `${process.env.NEXT_PUBLIC_DOMAIN}/api/pages`;
+    console.log(url);
     const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/pages`);
+    console.log(response);
     const data = await response.json();
 
     return data.map((p: any) => ({ page: p.slug }));
