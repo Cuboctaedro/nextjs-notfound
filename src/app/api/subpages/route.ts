@@ -21,3 +21,5 @@ export async function GET(request: Request) {
 
     return NextResponse.json({ subpages: data });
 }
+
+export const dynamic = 'force-static';

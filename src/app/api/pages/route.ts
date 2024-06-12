@@ -18,3 +18,5 @@ export async function GET(request: Request) {
 
     return NextResponse.json({ pages: data });
 }
+
+export const dynamic = 'force-static';
