@@ -1,5 +1,5 @@
 export async function GET(request: Request) {
-    const data = [
+    const data = await [
         {
             title: 'Page D',
             slug: 'page-d',
