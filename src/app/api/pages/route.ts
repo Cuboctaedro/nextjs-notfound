@@ -1,3 +1,5 @@
+import { NextResponse } from "next/server";
+
 export async function GET(request: Request) {
     const data = await [
         {
@@ -14,5 +16,5 @@ export async function GET(request: Request) {
         }
     ];
 
-    return Response.json(data);
+    return NextResponse.json(data);
 }
