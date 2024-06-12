@@ -16,6 +16,7 @@ export async function GET(request: Request) {
         }
     ];
 
+    console.log('Response data:', data);
     return NextResponse.json({ pages: data });
 }
 
