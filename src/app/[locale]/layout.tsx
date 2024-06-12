@@ -12,7 +12,11 @@ const LocaleLayout = async ({
 }: LocaleLayoutProps) => {
 
     return (
+        <html>
+            <body>
         <div id="locale-layout">{children}</div>
+        </body>
+        </html>
     );
 };
 
