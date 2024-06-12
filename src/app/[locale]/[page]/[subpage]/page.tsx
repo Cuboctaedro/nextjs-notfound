@@ -1,4 +1,3 @@
-import { subpages } from "@/data/subpages";
 import { Locale } from "@/config/languages-config";
 
 interface SubPageProps {
@@ -8,7 +7,10 @@ interface SubPageProps {
 const Subpage = async ({
     params,
 }: SubPageProps) => {
-    const pageData = subpages.find((p) => (p.slug == params.subpage));
+    const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/subpages`);
+    const data = await response.json();
+
+    const pageData = data.find((p: any) => (p.slug == params.subpage));
 
     if (pageData) {
         return (

@@ -1,5 +1,4 @@
 import { Locale } from "@/config/languages-config";
-import { homeData } from "@/data/home";
 
 interface HomeProps {
     params: { locale: Locale }
@@ -9,11 +8,10 @@ interface HomeProps {
 const HomePage = async ({
     params,
 }: HomeProps) => {
-    const data = homeData;
-    
+   
     return (
         <div>
-            <h1>{data.title}</h1>
+            <h1>Home</h1>
         </div>
     );
 }

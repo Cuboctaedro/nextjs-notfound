@@ -1,4 +1,3 @@
-import { pages } from "@/data/pages"
 import { Locale } from "@/config/languages-config";
 
 interface PageProps {
@@ -8,7 +7,10 @@ interface PageProps {
 const Page = async ({
     params,
 }: PageProps) => {
-    const pageData = pages.find((p) => (p.slug == params.page));
+    const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/pages`);
+    const data = await response.json();
+
+    const pageData = data.find((p: any) => (p.slug == params.page));
 
     if (pageData) {
         return (

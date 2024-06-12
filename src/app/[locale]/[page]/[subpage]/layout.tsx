@@ -1,4 +1,3 @@
-import { subpages } from "@/data/subpages";
 import { Locale } from "@/config/languages-config";
 
 interface SubpageLayoutProps {
@@ -22,8 +21,12 @@ export async function generateStaticParams({
 }: {
     params: { page: string, locale: Locale }
 }) {
-    const data = subpages;
-    return data.filter((sub) => (sub.parent == page)).map((sub) => ({ subpage: sub.slug }));
+    const response = await fetch(`${process.env.NEXT_PUBLIC_DOMAIN}/api/subpages`);
+    const data = await response.json();
+
+    return data
+        .filter((p: any) => (p.parent == page))
+        .map((p: any) => ({ subpage: p.slug }));
 }
 
 export const dynamic = 'force-static';
