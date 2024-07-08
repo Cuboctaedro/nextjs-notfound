@@ -1,14 +1,18 @@
+import { Locale, locales } from "@/data/locales";
+
 interface LocaleLayoutProps {
     children: React.ReactNode
+    params: { locale: Locale }
 }
 
 
 const LocaleLayout = async ({
     children,
+    params,
 }: LocaleLayoutProps) => {
 
     return (
-        <html>
+        <html lang={params.locale}>
             <body>
                 <div id="main-layout">
                     <p>main layout</p>
@@ -19,7 +23,12 @@ const LocaleLayout = async ({
     );
 };
 
-export const dynamic = 'force-static';
+export async function generateStaticParams() {
+    return locales.map((l) => (
+        { locale: l }
+    ));
+}
+
 export const dynamicParams = false;
 
 export default LocaleLayout;

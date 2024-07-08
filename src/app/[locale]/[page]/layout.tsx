@@ -1,6 +1,8 @@
+import { Locale } from "@/data/locales";
+
 interface LayoutProps {
     children: React.ReactNode
-    params: { page: string }
+    params: { page: string, locale: Locale }
 }
 
 const PageLayout = async ({
@@ -8,10 +10,9 @@ const PageLayout = async ({
     params,
 }: LayoutProps) => {
     return (
-        <div id="page-layout">
-            <p>page layout</p>
+        <>
             {children}
-        </div>
+        </>
     );
 };
 
