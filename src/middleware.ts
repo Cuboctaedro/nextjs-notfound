@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import type { NextRequest } from 'next/server';
-import { locales } from './data/locales';
+import { Locale, locales } from './data/locales';
 
 export function middleware(request: NextRequest) {
 
@@ -17,7 +17,7 @@ export function middleware(request: NextRequest) {
     if (pathsegments.length === 1) {
         newPathname = `${newPathname}/en`;
 
-    } else if (!locales.includes(pathsegments[1] as 'en' | 'es')) {
+    } else if (!locales.includes(pathsegments[1] as Locale)) {
         newPathname = `/en${newPathname}`;
     }
 
@@ -36,5 +36,5 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
-    matcher: ['/((?!api|_next/static|_next/image|favicon.ico|robots.txt|sitemaps.xml|sitemap.xml|sitemap/es.xml|sitemap/en.xml|facebook-catalog.xml|icon.png|apple-icon.png).*)'],
+    matcher: ['/((?!api|favicon.ico|robots.txt|icon.png|apple-icon.png).*)'],
 };
