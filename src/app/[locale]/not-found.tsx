@@ -2,7 +2,9 @@ import { NotFoundContent } from "@/components/not-found-content";
 
 const NotFoundPage = () => {
     return (
-        <NotFoundContent />
+        <div id="not-found">
+            <NotFoundContent />
+        </div>
     );
 };
 

@@ -1,4 +1,5 @@
 import { Locale, locales } from "@/data/locales";
+import Link from "next/link";
 
 interface LocaleLayoutProps {
     children: React.ReactNode
@@ -15,8 +16,17 @@ const LocaleLayout = async ({
         <html lang={params.locale}>
             <body>
                 <div id="main-layout">
-                    <p>main layout</p>
-                    {children}
+                    <ul>
+                        <li>
+                            <Link href={`/${params.locale}/pages/page-a`}>Page A</Link>
+                        </li>
+                        <li>
+                            <Link href={`/${params.locale}/pages/page-x`}>Page X</Link>
+                        </li>
+                    </ul>
+                    <div>
+                        {children}
+                    </div>
                 </div>
             </body>
         </html>
